@@ -15,6 +15,9 @@ function NewsCard({ news, favorites }: any) {
     }
     return `${diasAtras} dias atrás`;
   };
+  const indiceFoto = introducao.indexOf('- Foto:');
+  const introducaoCurta = indiceFoto !== -1 ? introducao
+    .slice(0, indiceFoto) : introducao;
 
   const handleClick = () => {
     window.open(link);
@@ -22,18 +25,20 @@ function NewsCard({ news, favorites }: any) {
   return (
     <div className="news-card">
       <h2 className="news-title">{titulo}</h2>
-      <p className="news-intro">{introducao}</p>
+      <p className="news-intro">{introducaoCurta}</p>
       <p className="news-date">
         {formatarData()}
       </p>
-      <button
-        className="read-more"
-        onClick={ handleClick }
-      >
-        Ler Mais
-      </button>
-      <div className="favorite-button">
-        <button onClick={ () => favorites(news) }>Adicionar aos Favoritos</button>
+      <div className="button-container">
+        <button
+          className="read-more"
+          onClick={ handleClick }
+        >
+          Ler Mais
+        </button>
+        <div className="favorite-button">
+          <button onClick={ () => favorites(news) }>Adicionar aos Favoritos</button>
+        </div>
       </div>
     </div>
   );
