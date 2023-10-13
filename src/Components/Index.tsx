@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ApiContext from '../Context/ApiContext';
 import NewsCard from './NewsCard/NewsCard';
 import { News } from '../types';
@@ -7,6 +8,12 @@ export function Index() {
   const { ibgeData } = useContext(ApiContext);
   const [newsCount, setNewsCount] = useState(10);
   const renderNews = ibgeData.slice(0, newsCount);
+
+  const navigate = useNavigate();
+
+  const hanldleClickNavigate = () => {
+    navigate('/favorites');
+  };
 
   if (ibgeData.length === 0) {
     return <div>Loading...</div>;
@@ -54,6 +61,9 @@ export function Index() {
             <p>{firstNews.introducao}</p>
           </div>
         )}
+      </div>
+      <div>
+        <button onClick={ hanldleClickNavigate }>Favoritos</button>
       </div>
       <div className="news-container">
         {remainingNews.map((res) => {
