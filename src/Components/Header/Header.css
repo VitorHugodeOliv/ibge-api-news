@@ -1,0 +1,19 @@
+.header {
+  width: 100%; /* Ocupa toda a largura da página */
+  background-color: #13aa78; /* Cor de fundo do cabeçalho */
+  color: #fff; /* Cor do texto no cabeçalho */
+  display: flex; /* Use flexbox para organizar a imagem e o título lado a lado */
+  align-items: center;  
+}
+    /* Estilize a faixa de título dentro do cabeçalho */
+.header-title {
+  text-align: center; /* Centralize o texto horizontalmente */
+  font-size: 1.5em; /* Tamanho do texto do título */
+  font-weight: bold; /* Peso da fonte */
+}
+
+    /* Estilize a imagem de logo dentro do cabeçalho */
+.header-logo {
+  margin-right: 10px; /* Adicione espaço entre a imagem e o título */
+  max-width: 100px; 
+}

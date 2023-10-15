@@ -3,33 +3,39 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
+    align-content: center;
+    padding: 120px;
+
 }
 
 .news-card {
   border: 1px solid #ddd;
   border-radius: 5px;;
   width: 30%;
-  padding: 10px;
-  width: 350px;
+  padding: 30px;
+  width: 430px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s;
   position: relative;
   height: 350px;
+  text-align: left; /* Alinhe o texto à esquerda */
+  
 }
   
   /* Estilizando o título da notícia */
 .news-title {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
 }
   
   /* Estilizando a introdução da notícia */
 .news-intro {
-  margin-top: 10px;
+  margin-top: 15px;
+  font-size: medium;
 }
 
 .news-date {
-  margin-top: 10px;
+  margin-top: 25px;
   margin-right: 150px;
 }
   

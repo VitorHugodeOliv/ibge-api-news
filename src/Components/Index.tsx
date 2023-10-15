@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ApiContext from '../Context/ApiContext';
 import NewsCard from './NewsCard/NewsCard';
 import { News } from '../types';
+import FirstNews from './FirstNews/FirstNews';
 
 export function Index() {
   const { ibgeData } = useContext(ApiContext);
@@ -56,9 +57,8 @@ export function Index() {
       {' '}
       <div>
         {firstNews && (
-          <div className="first-news">
-            <p>{firstNews.titulo}</p>
-            <p>{firstNews.introducao}</p>
+          <div>
+            <FirstNews news={ firstNews } favorites={ addToFavorites } />
           </div>
         )}
       </div>

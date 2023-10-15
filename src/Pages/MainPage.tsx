@@ -1,8 +1,12 @@
+import Header from '../Components/Header/Header';
 import { Index } from '../Components/Index';
 
 function MainPage() {
   return (
-    <Index />
+    <>
+      <Header />
+      <Index />
+    </>
   );
 }
 

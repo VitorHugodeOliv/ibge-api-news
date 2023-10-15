@@ -1,0 +1,52 @@
+.first-news {
+  width: 60%; /* Largura maior para ocupar mais espaço */
+  background-color: #d1dfdb;
+  padding: 20px;
+  border: 2px solid #007bff; /* Borda destacada */
+  border-radius: 5px;
+  margin: 10px auto; /* Centralizar o card na tela */
+  display: block;
+}
+
+.first-news-title {
+  font-size: 1.5em;
+  font-weight: bold  
+}
+
+.first-news-intro {
+  margin-top: 20px;
+  font-size: 1.2em
+}
+
+.first-news-date {
+  margin-top: 20px;
+  font-size: 1em;
+}
+
+.first-news-button-read {
+  bottom: 10px;
+  right: 10px;
+  background-color: #9900fffb;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 145px;
+  width: 200px;
+}
+
+.first-news-button-read:hover {
+  background-color: #9900ff;
+}
+
+.first-news-button-favorite {
+  background-color: #ff6b6b;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
