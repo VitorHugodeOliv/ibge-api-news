@@ -1,5 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.container-first-news {
+  display: flex;
+  align-content: center;
+  padding: 100px;
+  width: 100%;
 }
+
+.img-first-news {
+  width: 630px;
+  border-radius: 10px;
+  margin-left: 100px
+};

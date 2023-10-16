@@ -1,16 +1,22 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApiContext from '../Context/ApiContext';
-import NewsCard from './NewsCard/NewsCard';
+import { NewsCard } from './NewsCard/NewsCard';
 import { News } from '../types';
 import FirstNews from './FirstNews/FirstNews';
+import './Index.css';
 
 export function Index() {
   const { ibgeData } = useContext(ApiContext);
   const [newsCount, setNewsCount] = useState(10);
+  const [isFavorites, setIsFavorites] = useState(false);
   const renderNews = ibgeData.slice(0, newsCount);
 
   const navigate = useNavigate();
+
+  const toggleFavorite = () => {
+    setIsFavorites(!isFavorites);
+  };
 
   const hanldleClickNavigate = () => {
     navigate('/favorites');
@@ -26,16 +32,14 @@ export function Index() {
   const addToFavorites = (newsItem: News) => {
     const isFavorite = JSON.parse(localStorage.getItem('favoriteNews') || '[]');
 
-    // Verifique se a notícia já está nos favoritos
     const index = isFavorite.findIndex((favorite: any) => favorite.id === newsItem.id);
 
     if (index !== -1) {
-      // Se a notícia já está nos favoritos, remova-a da lista
       const updatedFavorites = [...isFavorite];
       updatedFavorites.splice(index, 1);
       localStorage.setItem('favoriteNews', JSON.stringify(updatedFavorites));
+      setIsFavorites(false);
     } else {
-      // Se a notícia não está nos favoritos, adicione-a à lista
       const { id, title, description, dataPubli } = newsItem;
       const updatedLocalStorage = {
         id,
@@ -45,20 +49,30 @@ export function Index() {
       };
       localStorage
         .setItem('favoriteNews', JSON.stringify([...isFavorite, updatedLocalStorage]));
+      setIsFavorites(true);
     }
   };
 
-  console.log(ibgeData);
   const firstNews = renderNews[0];
   const remainingNews = renderNews.slice(1);
+  const imagensObj = JSON.parse(firstNews.imagens);
 
   return (
     <div>
       {' '}
       <div>
         {firstNews && (
-          <div>
-            <FirstNews news={ firstNews } favorites={ addToFavorites } />
+          <div className="container-first-news">
+            <img
+              className="img-first-news"
+              src={ `https://agenciadenoticias.ibge.gov.br/${imagensObj.image_intro}` }
+              alt="errode"
+            />
+            <FirstNews
+              news={ firstNews }
+              favorites={ addToFavorites }
+              saveFavorites={ toggleFavorite }
+            />
           </div>
         )}
       </div>

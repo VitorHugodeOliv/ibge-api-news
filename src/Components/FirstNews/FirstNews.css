@@ -1,11 +1,12 @@
 .first-news {
-  width: 60%; /* Largura maior para ocupar mais espaço */
+  width: 35%; /* Largura maior para ocupar mais espaço */
   background-color: #d1dfdb;
   padding: 20px;
   border: 2px solid #007bff; /* Borda destacada */
   border-radius: 5px;
   margin: 10px auto; /* Centralizar o card na tela */
   display: block;
+  margin-left: 35px;
 }
 
 .first-news-title {
