@@ -26,7 +26,7 @@ export function Index() {
     return <div>Loading...</div>;
   }
   const loadMore = () => {
-    setNewsCount(newsCount + 10);
+    setNewsCount(newsCount + 6);
   };
 
   const firstNews = renderNews[0];
@@ -65,9 +65,14 @@ export function Index() {
         })}
       </div>
       {newsCount < ibgeData.length && (
-        <button onClick={ loadMore }>Mais Notícias</button>
-      )}
+        <button
+          className="btn-load-more"
+          onClick={ loadMore }
+        >
+          Mais Notícias
 
+        </button>
+      )}
     </div>
   );
 }

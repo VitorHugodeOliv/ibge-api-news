@@ -6,31 +6,26 @@ import Heart from '../../Imagens/checked_heart.png';
 
 function FirstNews({ news, favorites }: any) {
   const { titulo, introducao, link, data_publicacao: dataPubli } = news;
-  const [isFavorites, setIsFavorites] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const dataMoment = moment(dataPubli, 'DD/MM/YYYY HH:mm:ss');
   const diasAtras = moment().diff(dataMoment, 'days');
 
   useEffect(() => {
-    // Verifique o localStorage ao montar o componente
     const favoriteNews = JSON.parse(localStorage.getItem('favoriteNews') || '[]');
     const isFavorited = favoriteNews.some((favorite: any) => favorite.id === news.id);
-    setIsFavorites(isFavorited);
+    setIsFavorite(isFavorited);
   }, [news.id]);
 
-  const favoriteNews = JSON.parse(localStorage.getItem('favoriteNews') || '[]');
-  const index = favoriteNews.findIndex((favorite: any) => favorite.id === news.id);
-  if (index !== -1) {
-    favoriteNews.splice(index, 1);
-  } else {
-    const { id, title, description, data_publicacao: dataPublic } = news;
-    favoriteNews.push({ id, title, description, dataPublic });
-  }
-  localStorage.setItem('favoriteNews', JSON.stringify(favoriteNews));
-
   const handleClickFavorite = () => {
-    favorites(news); // Chame a função de favoritos para adicionar ou remover da lista de favoritos
-    setIsFavorites(!isFavorites); // Alterne o estado de favoritos
+    favorites({
+      id: news.id,
+      titulo,
+      introducao,
+      link,
+      data_publicacao: dataPubli,
+    });
+    setIsFavorite(!isFavorite);
   };
 
   const formatarData = () => {
@@ -55,18 +50,19 @@ function FirstNews({ news, favorites }: any) {
       <p className="first-news-date">
         {formatarData()}
       </p>
-      <div className="">
+      <div className="containe-fist-news-buttons">
         <button
           className="first-news-button-read"
           onClick={ handleClick }
         >
           Ler Mais
         </button>
-        <div>
-          <button onClick={ handleClickFavorite }>
-            <img src={ isFavorites ? Heart : blackHeart } alt="" />
-          </button>
-        </div>
+        <button
+          onClick={ handleClickFavorite }
+          className="first-news-button-favorite"
+        >
+          <img src={ isFavorite ? Heart : blackHeart } alt="" />
+        </button>
       </div>
     </div>
   );

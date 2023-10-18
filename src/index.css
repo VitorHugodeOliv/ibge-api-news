@@ -4,8 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #d1c6c6;
+  color: rgba(80, 68, 68, 0.87);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,6 +33,18 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+
+.btn-load-more {
+  background-color: #159A9C;
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(17, 100, 148);
+  margin-left: 45%;
+  padding: 15px;
+  margin-bottom: 50px;
+  width: 200px;
+
 }
 
 button {

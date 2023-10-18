@@ -58,11 +58,12 @@ export function NewsCard({ news, favorites }: any) {
         >
           Ler Mais
         </button>
-        <div>
-          <button onClick={ handleClickFavorite }>
-            <img src={ isFavorite ? Heart : blackHeart } alt="" />
-          </button>
-        </div>
+        <button
+          onClick={ handleClickFavorite }
+          className="favorite-button"
+        >
+          <img src={ isFavorite ? Heart : blackHeart } alt="" />
+        </button>
       </div>
     </div>
   );

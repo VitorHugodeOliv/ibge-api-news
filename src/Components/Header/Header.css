@@ -1,19 +1,22 @@
 .header {
   width: 100%; /* Ocupa toda a largura da página */
-  background-color: #13aa78; /* Cor de fundo do cabeçalho */
+  background-color: #159A9C; /* Cor de fundo do cabeçalho */
   color: #fff; /* Cor do texto no cabeçalho */
   display: flex; /* Use flexbox para organizar a imagem e o título lado a lado */
-  align-items: center;  
+  align-items: center;
+  border: 1px solid rgb(29, 102, 145);
 }
     /* Estilize a faixa de título dentro do cabeçalho */
 .header-title {
   text-align: center; /* Centralize o texto horizontalmente */
-  font-size: 1.5em; /* Tamanho do texto do título */
+  font-size: 1.8em; /* Tamanho do texto do título */
   font-weight: bold; /* Peso da fonte */
 }
 
-    /* Estilize a imagem de logo dentro do cabeçalho */
 .header-logo {
-  margin-right: 10px; /* Adicione espaço entre a imagem e o título */
-  max-width: 100px; 
+  margin-right: 30px; /* Adicione espaço entre a imagem e o título */
+  max-width: 150px; 
+  background-color: white;
+  border: 1px solid rgb(29, 102, 145);
+  border-radius: 5px;
 }

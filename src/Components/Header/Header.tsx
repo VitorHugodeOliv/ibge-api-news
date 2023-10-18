@@ -1,5 +1,5 @@
 import './Header.css';
-import logo from '../../Imagens/logo_trybe-escola-de-programacao_qa5YhY.png';
+import logo from '../../Imagens/274-1.png';
 
 function Header() {
   return (
@@ -9,7 +9,7 @@ function Header() {
         alt="Logo"
         className="header-logo"
       />
-      <div className="header-title">Título do Cabeçalho</div>
+      <div className="header-title">IBGE News</div>
     </div>
   );
 }

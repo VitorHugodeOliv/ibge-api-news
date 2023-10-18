@@ -1,12 +1,17 @@
+body {
+ background-color: #e4e5e6;
+}
+
 .container-first-news {
   display: flex;
   align-content: center;
   padding: 100px;
-  width: 100%;
+  width:  fit-content;
 }
 
 .img-first-news {
-  width: 630px;
+  width: 690px;
   border-radius: 10px;
-  margin-left: 100px
+  margin-left: 100px;
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
 };
