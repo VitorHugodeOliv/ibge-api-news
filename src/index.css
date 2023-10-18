@@ -35,6 +35,13 @@ h1 {
   line-height: 1.1;
 }
 
+.container-buttons-filter {
+  background-color: #535bf2;
+  width: 90%;
+  display: flex;
+  margin-left: 90px;
+  border-radius: 10px;
+}
 
 .btn-load-more {
   background-color: #159A9C;
