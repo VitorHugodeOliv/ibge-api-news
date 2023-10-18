@@ -20,22 +20,14 @@ export function NewsCard({ news, favorites }: any) {
     setIsFavorite(isFavorited);
   }, [news.id]);
 
-  const favoriteNews = JSON.parse(localStorage.getItem('favoriteNews') || '[]');
-  const index = favoriteNews.findIndex((favorite: any) => favorite.id === news.id);
-  if (index !== -1) {
-    favoriteNews.splice(index, 1);
-  } else {
-    favoriteNews.push(
-      { id: news.id,
-        title: titulo,
-        description: introducaoCurta,
-        dataPublicacao: dataPubli },
-    );
-  }
-  localStorage.setItem('favoriteNews', JSON.stringify(favoriteNews));
-
   const handleClickFavorite = () => {
-    favorites(news);
+    favorites({
+      id: news.id,
+      titulo,
+      introducao,
+      link,
+      data_publicacao: dataPubli,
+    });
     setIsFavorite(!isFavorite);
   };
 

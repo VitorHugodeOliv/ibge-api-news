@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApiContext from '../Context/ApiContext';
 import { NewsCard } from './NewsCard/NewsCard';
-import { News } from '../types';
+import { addToFavorites } from '../Service/addToFavorites';
 import FirstNews from './FirstNews/FirstNews';
 import './Index.css';
 
@@ -27,30 +27,6 @@ export function Index() {
   }
   const loadMore = () => {
     setNewsCount(newsCount + 10);
-  };
-
-  const addToFavorites = (newsItem: News) => {
-    const isFavorite = JSON.parse(localStorage.getItem('favoriteNews') || '[]');
-
-    const index = isFavorite.findIndex((favorite: any) => favorite.id === newsItem.id);
-
-    if (index !== -1) {
-      const updatedFavorites = [...isFavorite];
-      updatedFavorites.splice(index, 1);
-      localStorage.setItem('favoriteNews', JSON.stringify(updatedFavorites));
-      setIsFavorites(false);
-    } else {
-      const { id, title, description, dataPubli } = newsItem;
-      const updatedLocalStorage = {
-        id,
-        title,
-        description,
-        dataPubli,
-      };
-      localStorage
-        .setItem('favoriteNews', JSON.stringify([...isFavorite, updatedLocalStorage]));
-      setIsFavorites(true);
-    }
   };
 
   const firstNews = renderNews[0];
