@@ -10,9 +10,11 @@ export function NewsCard({ news, favorites }: any) {
 
   const dataMoment = moment(dataPubli, 'DD/MM/YYYY HH:mm:ss');
   const diasAtras = moment().diff(dataMoment, 'days');
+  const indiceFoto = introducao.indexOf('- Foto:');
+  const introducaoCurta = indiceFoto !== -1 ? introducao
+    .slice(0, indiceFoto) : introducao;
 
   useEffect(() => {
-    // Verifique o localStorage ao montar o componente
     const favoriteNews = JSON.parse(localStorage.getItem('favoriteNews') || '[]');
     const isFavorited = favoriteNews.some((favorite: any) => favorite.id === news.id);
     setIsFavorite(isFavorited);
@@ -23,14 +25,18 @@ export function NewsCard({ news, favorites }: any) {
   if (index !== -1) {
     favoriteNews.splice(index, 1);
   } else {
-    const { id, title, description, data_publicacao: dataPublic } = news;
-    favoriteNews.push({ id, title, description, dataPublic });
+    favoriteNews.push(
+      { id: news.id,
+        title: titulo,
+        description: introducaoCurta,
+        dataPublicacao: dataPubli },
+    );
   }
   localStorage.setItem('favoriteNews', JSON.stringify(favoriteNews));
 
   const handleClickFavorite = () => {
-    favorites(news); // Chame a função de favoritos para adicionar ou remover da lista de favoritos
-    setIsFavorite(!isFavorite); // Alterne o estado de favoritos
+    favorites(news);
+    setIsFavorite(!isFavorite);
   };
 
   const formatarData = () => {
@@ -41,9 +47,6 @@ export function NewsCard({ news, favorites }: any) {
     }
     return `${diasAtras} dias atrás`;
   };
-  const indiceFoto = introducao.indexOf('- Foto:');
-  const introducaoCurta = indiceFoto !== -1 ? introducao
-    .slice(0, indiceFoto) : introducao;
 
   const handleClick = () => {
     window.open(link);
