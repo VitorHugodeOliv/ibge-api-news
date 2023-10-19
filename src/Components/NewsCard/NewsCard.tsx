@@ -27,6 +27,7 @@ export function NewsCard({ news, favorites, showImagens }: any) {
       introducao,
       link,
       data_publicacao: dataPubli,
+      imagens: news.imagens,
     });
     setIsFavorite(!isFavorite);
   };

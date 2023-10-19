@@ -6,6 +6,8 @@ import arrow from '../Imagens/seta-para-baixo.png';
 import arrowUp from '../Imagens/seta-para-cima.png';
 import lupaSearch from '../Imagens/lupa.png';
 import heart from '../Imagens/checked_heart.png';
+import gridIcon from '../Imagens/grid.png';
+import listIcon from '../Imagens/list.png';
 import FirstNews from './FirstNews/FirstNews';
 import './Index.css';
 import { ApiType } from '../types';
@@ -111,7 +113,11 @@ export function Index() {
           />
         </button>
         <button onClick={ toggleShowImagens } className="btn-show-hide">
-          {showImagens ? 'Ocultar Cards' : 'Mostrar Cards'}
+          <img
+            src={ showImagens ? gridIcon : listIcon }
+            alt="grinds icones"
+            className="show-imagens-icons"
+          />
         </button>
       </div>
       <div className="news-container">

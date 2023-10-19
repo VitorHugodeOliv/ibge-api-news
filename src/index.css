@@ -57,6 +57,10 @@ h1 {
   width: 24px;
 }
 
+.show-imagens-icons {
+  width: 30px;
+}
+
 .heart-search {
   margin-left: 10px;
   width: 23px;
@@ -75,6 +79,10 @@ h1 {
   background-color: #06415c;
 }
 
+.btn-show-hide {
+  background-color: #e4e5e6;
+  margin-left: 500px;
+}
 .btn-filter-favorites {
   background-color: #159A9C;
   box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
@@ -105,13 +113,14 @@ h1 {
 }
 
 .container-buttons-filter {
-  width: 90%;
+  width: 1150px;
   display: flex;
-  margin-left: 32%;
+  margin-left: 620px;
   border-radius: 10px;
   align-items: center;
   gap: 50px;
   margin-top: 50px;
+
 }
 
 .btn-load-more {
