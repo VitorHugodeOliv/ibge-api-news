@@ -35,12 +35,74 @@ h1 {
   line-height: 1.1;
 }
 
+.search-label {
+  font-size: 1.2em;
+  font-weight: 500;
+  display: flex;
+  align-content: center;
+}
+
+.lupa-search {
+  margin-left: 500px;
+  margin-top: 35px;
+  width: 55px;
+}
+
+.arrow-search {
+  margin-left: 10px;
+  width: 23px;
+}
+
+.btn-filter-date {
+  background-color: #159A9C;
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(17, 100, 148);
+  font-size: 1.0em;
+  text-align: center;
+  width: 240px;
+  max-height: 80px;
+}
+.btn-filter-date:hover{
+  background-color: #06415c;
+}
+
+.btn-filter-favorites {
+  background-color: #159A9C;
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(17, 100, 148);
+  font-size: 1.0em;
+  text-align: center;
+  width: 240px;
+  max-height: 80px;
+}
+
+.btn-filter-favorites:hover{
+  background-color: #06415c;
+}
+
+.search-input {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 35px;
+  margin-left: 10px;
+}
+
 .container-buttons-filter {
-  background-color: #535bf2;
   width: 90%;
   display: flex;
-  margin-left: 90px;
+  margin-left: 32%;
   border-radius: 10px;
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
 }
 
 .btn-load-more {
