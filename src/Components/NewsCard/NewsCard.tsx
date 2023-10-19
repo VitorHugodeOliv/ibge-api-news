@@ -49,17 +49,17 @@ export function NewsCard({ news, favorites, showImagens }: any) {
   const imagensObj = JSON.parse(news.imagens);
 
   return (
-    <div className="teste">
-      <div className={ newClass }>
-        <div className="news-image-container">
-          {!showImagens ? null : (
-            <img
-              src={ `https://agenciadenoticias.ibge.gov.br/${imagensObj.image_intro}` }
-              alt="Erro"
-              className="news-image"
-            />
-          )}
-        </div>
+    <div className={ newClass }>
+      <div>
+        {!showImagens ? null : (
+          <img
+            src={ `https://agenciadenoticias.ibge.gov.br/${imagensObj.image_intro}` }
+            alt="Erro"
+            className="news-image"
+          />
+        )}
+      </div>
+      <div>
         <h2 className="news-title">{titulo}</h2>
         <p className="news-intro">{introducaoCurta}</p>
         <p className="news-date">
