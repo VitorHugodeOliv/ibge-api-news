@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
 import ApiContext from '../Context/ApiContext';
 import { NewsCard } from './NewsCard/NewsCard';
-import { addToFavorites } from '../Service/addToFavorites';
+import { addToFavorites, getFavoriteNews } from '../Service/addToFavorites';
 import arrow from '../Imagens/seta-para-baixo.png';
 import arrowUp from '../Imagens/seta-para-cima.png';
 import lupaSearch from '../Imagens/lupa.png';
+import heart from '../Imagens/checked_heart.png';
 import FirstNews from './FirstNews/FirstNews';
 import './Index.css';
 import { ApiType } from '../types';
@@ -15,9 +16,12 @@ export function Index() {
   const [isFavorites, setIsFavorites] = useState(false);
   const [reversed, setReversed] = useState(false);
   const [search, setSearch] = useState('');
+  const [showFavorites, setShowFavorites] = useState(false);
   const reversedIbgeData = [...ibgeData].reverse();
   const renderNewsReversed = reversedIbgeData.slice(0, newsCount);
   const renderNews = ibgeData.slice(0, newsCount);
+
+  const favoriteNews = getFavoriteNews();
 
   const toggleFavorite = () => {
     setIsFavorites(!isFavorites);
@@ -25,6 +29,10 @@ export function Index() {
 
   const toggleReversed = () => {
     setReversed(!reversed);
+  };
+
+  const toggleShowFavorites = () => {
+    setShowFavorites(!showFavorites);
   };
 
   if (ibgeData.length === 0) {
@@ -88,28 +96,40 @@ export function Index() {
         </button>
         <button
           className="btn-filter-favorites"
+          onClick={ toggleShowFavorites }
         >
           Mostrar noticias Favoritas
+          <img
+            src={ heart }
+            alt="coração"
+            className="heart-search"
+          />
         </button>
       </div>
       <div className="news-container">
-        {!reversed ? (remainingNews.filter((planet:ApiType) => planet.titulo.toLowerCase()
-          .includes(search.toLowerCase()))
-          .map((res) => {
-            return (
-              <ul key={ res.id }>
-                <NewsCard news={ res } favorites={ addToFavorites } />
-              </ul>
-            );
-          })) : (renderNewsReversed.filter((planet:ApiType) => planet.titulo.toLowerCase()
-          .includes(search.toLowerCase()))
-          .map((news) => {
-            return (
-              <ul key={ news.id }>
-                <NewsCard news={ news } favorites={ addToFavorites } />
-              </ul>
-            );
-          })) }
+        {showFavorites && favoriteNews.map((favorite: any) => (
+          <ul key={ favorite.id }>
+            <NewsCard news={ favorite } favorites={ addToFavorites } />
+          </ul>
+        ))}
+
+        {!showFavorites && (
+          !reversed
+            ? remainingNews
+              .filter((planet: ApiType) => planet.titulo.toLowerCase()
+                .includes(search.toLowerCase())).map((res) => (
+                  <ul key={ res.id }>
+                    <NewsCard news={ res } favorites={ addToFavorites } />
+                  </ul>
+              ))
+            : renderNewsReversed
+              .filter((planet: ApiType) => planet.titulo.toLowerCase()
+                .includes(search.toLowerCase())).map((news) => (
+                  <ul key={ news.id }>
+                    <NewsCard news={ news } favorites={ addToFavorites } />
+                  </ul>
+              ))
+        )}
       </div>
       {newsCount < ibgeData.length && (
         <button

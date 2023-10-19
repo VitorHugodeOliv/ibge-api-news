@@ -50,6 +50,13 @@ h1 {
 
 .arrow-search {
   margin-left: 10px;
+  margin-bottom: 5px;
+  margin-top: 4px;
+  width: 24px;
+}
+
+.heart-search {
+  margin-left: 10px;
   width: 23px;
 }
 
@@ -60,7 +67,7 @@ h1 {
   font-size: 1.0em;
   text-align: center;
   width: 240px;
-  max-height: 80px;
+  max-height: 90px;
 }
 .btn-filter-date:hover{
   background-color: #06415c;
@@ -73,7 +80,7 @@ h1 {
   font-size: 1.0em;
   text-align: center;
   width: 240px;
-  max-height: 80px;
+  max-height: 55px;
 }
 
 .btn-filter-favorites:hover{
