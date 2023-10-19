@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import blackHeart from '../../Imagens/empty_heart.png';
 import Heart from '../../Imagens/checked_heart.png';
 
-export function NewsCard({ news, favorites }: any) {
+export function NewsCard({ news, favorites, showImagens }: any) {
   const { titulo, introducao, link, data_publicacao: dataPubli } = news;
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -44,26 +44,41 @@ export function NewsCard({ news, favorites }: any) {
     window.open(link);
   };
 
+  const newClass = showImagens ? 'news-card with-image' : 'news-card';
+
+  const imagensObj = JSON.parse(news.imagens);
+
   return (
-    <div className="news-card">
-      <h2 className="news-title">{titulo}</h2>
-      <p className="news-intro">{introducaoCurta}</p>
-      <p className="news-date">
-        {formatarData()}
-      </p>
-      <div className="button-container">
-        <button
-          className="read-more"
-          onClick={ handleClick }
-        >
-          Ler Mais
-        </button>
-        <button
-          onClick={ handleClickFavorite }
-          className="favorite-button"
-        >
-          <img src={ isFavorite ? Heart : blackHeart } alt="" />
-        </button>
+    <div className="teste">
+      <div className={ newClass }>
+        <div className="news-image-container">
+          {!showImagens ? null : (
+            <img
+              src={ `https://agenciadenoticias.ibge.gov.br/${imagensObj.image_intro}` }
+              alt="Erro"
+              className="news-image"
+            />
+          )}
+        </div>
+        <h2 className="news-title">{titulo}</h2>
+        <p className="news-intro">{introducaoCurta}</p>
+        <p className="news-date">
+          {formatarData()}
+        </p>
+        <div className="button-container">
+          <button
+            className="read-more"
+            onClick={ handleClick }
+          >
+            Ler Mais
+          </button>
+          <button
+            onClick={ handleClickFavorite }
+            className="favorite-button"
+          >
+            <img src={ isFavorite ? Heart : blackHeart } alt="" />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -17,6 +17,7 @@ export function Index() {
   const [reversed, setReversed] = useState(false);
   const [search, setSearch] = useState('');
   const [showFavorites, setShowFavorites] = useState(false);
+  const [showImagens, setShowImagens] = useState(false);
   const reversedIbgeData = [...ibgeData].reverse();
   const renderNewsReversed = reversedIbgeData.slice(0, newsCount);
   const renderNews = ibgeData.slice(0, newsCount);
@@ -33,6 +34,10 @@ export function Index() {
 
   const toggleShowFavorites = () => {
     setShowFavorites(!showFavorites);
+  };
+
+  const toggleShowImagens = () => {
+    setShowImagens(!showImagens);
   };
 
   if (ibgeData.length === 0) {
@@ -105,13 +110,18 @@ export function Index() {
             className="heart-search"
           />
         </button>
+        <button onClick={ toggleShowImagens } className="btn-show-hide">
+          {showImagens ? 'Ocultar Cards' : 'Mostrar Cards'}
+        </button>
       </div>
       <div className="news-container">
-        {showFavorites && favoriteNews.map((favorite: any) => (
-          <ul key={ favorite.id }>
-            <NewsCard news={ favorite } favorites={ addToFavorites } />
-          </ul>
-        ))}
+        {showFavorites && favoriteNews
+          .filter((planet: ApiType) => planet.titulo.toLowerCase()
+            .includes(search.toLowerCase())).map((favorite: any) => (
+              <ul key={ favorite.id }>
+                <NewsCard news={ favorite } favorites={ addToFavorites } />
+              </ul>
+          ))}
 
         {!showFavorites && (
           !reversed
@@ -119,7 +129,11 @@ export function Index() {
               .filter((planet: ApiType) => planet.titulo.toLowerCase()
                 .includes(search.toLowerCase())).map((res) => (
                   <ul key={ res.id }>
-                    <NewsCard news={ res } favorites={ addToFavorites } />
+                    <NewsCard
+                      news={ res }
+                      showImagens={ showImagens }
+                      favorites={ addToFavorites }
+                    />
                   </ul>
               ))
             : renderNewsReversed
