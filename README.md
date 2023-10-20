@@ -23,4 +23,10 @@ Filtragem por nome ou data para encontrar rapidamente as informações que você
 
   - npm run dev, para inicializar.
 
+### AVISO ###
+
+  - NÃO foi feito os testes por motivos de bug com os instaladores 
+  - IREI criar os testes assim que conseguir encontrar a solução para o problema.
+
+##### ######
 
