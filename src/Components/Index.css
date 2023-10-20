@@ -17,3 +17,17 @@ body {
   margin-left: 100px;
   box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
 };
+
+@media screen and (max-width: 768px) {
+  .container-first-news {
+    flex-direction: column; /* Muda para um layout de coluna em telas pequenas */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    padding: 20px; /* Reduz o preenchimento para telas menores */
+  }
+
+  .img-first-news {
+    max-width: 100%; /* A imagem se ajustará à largura do contêiner */
+    max-height: auto; /* A altura da imagem se ajustará automaticamente */
+    margin: 10px 0; /* Espaçamento superior e inferior para separar elementos */
+  }
+}

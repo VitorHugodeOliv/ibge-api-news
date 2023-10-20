@@ -28,7 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 90vh;
-  overflow-x: hidden;
+
   overflow-y: scroll;
 }
 
@@ -151,6 +151,65 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media screen and (max-width: 768px) {
+  .search-label {
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .lupa-search {
+    margin-left: 10px;
+    margin-top: 15px;
+    width: 55px;
+  }
+
+  .arrow-search {
+    margin-left: 10px;
+    margin-top: 15px;
+    width: 24px;
+  }
+
+  .show-imagens-icons {
+    width: 20px;
+  }
+
+  .heart-search {
+    margin-left: 10px;
+    width: 18px;
+  }
+
+  .btn-filter-date {
+    width: 100%;
+    margin-left: 0;
+    max-height: 75px;
+  }
+
+  .btn-show-hide {
+    margin-left: 10px;
+  }
+
+  .btn-filter-favorites {
+    width: 100%;
+    max-height: 55px;
+  }
+
+  .search-input {
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+
+  .container-buttons-filter {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .btn-load-more {
+    margin-left: 10px;
+    width: 100%;
+  }
 }
 
 @media (prefers-color-scheme: light) {
