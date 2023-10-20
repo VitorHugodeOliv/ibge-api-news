@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setBodyLoaded(true);
-    }, 2000);
+    }, 3000);
   }, []);
 
   return (
