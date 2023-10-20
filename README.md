@@ -1,27 +1,22 @@
-# React + TypeScript + Vite
+# Bem-vindo ao nosso Projeto IBGE News!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma plataforma que permite aos usuários acessar e explorar as últimas notícias do Instituto Brasileiro de Geografia e Estatística (IBGE). Com uma interface intuitiva e funcionalidades poderosas, oferecemos uma maneira fácil de acompanhar as informações mais recentes e importantes.
 
-Currently, two official plugins are available:
+Recursos Destacados:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Exploração de Notícias: Acesse uma ampla gama de notícias do IBGE diretamente da fonte confiável.
 
-## Expanding the ESLint configuration
+Favoritar Notícias: Marque as notícias que mais lhe interessam para acesso rápido e fácil.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Filtragem Avançada: Classifique notícias por nome ou data para encontrar rapidamente as informações que você procura.
 
-- Configure the top-level `parserOptions` property like this:
+# Inicialização
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+  - git clone git@github.com:VitorHugodeOliv/ibge-api-news.git;
+  
+  - entrar no diretorio do projeto;
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+  - npm install, para instalar os pacotes necessarios para o funcionamento
+
+  - npm start, para inicializar.
+
